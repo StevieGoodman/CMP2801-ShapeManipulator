@@ -15,7 +15,7 @@ public:
     vector<string> arguments;
     
     /// Creates a new command object from user input. Input is processed and parsed.
-    Command(const string& input);
+    Command(const string & input);
     
     /// Checks that a command object has a given amount of arguments.
     bool hasArguments(int count);

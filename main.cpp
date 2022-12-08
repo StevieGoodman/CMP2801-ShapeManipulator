@@ -16,30 +16,15 @@ GOOD LUCK!
 
 ------------------------------------------------------ */
 
-using namespace std;
-
-
 #include <iostream>
-#include <sstream>
 #include <string>
-#include <vector>
 #include "src/Command.h"
+#include "src/UserInput.h"
 //#include "Shape.h"
 //#include "Circle.h"
 //#include "Rectangle.h"
 //#include "Square.h"
 //#include "Movable.h"
-
-
-/// Prompts user for a command and returns the user's case insensitive input.
-/// Tags: lambda functions, functional programming
-string &getCommand(string &userCommand) {
-    cout << "Please type in your command: ";
-    getline(cin, userCommand);
-    transform(userCommand.begin(), userCommand.end(), userCommand.begin(), 
-              [](char character){ return tolower(character); });
-    return userCommand;
-}
 
 int main()
 {
@@ -48,8 +33,8 @@ int main()
     while (true) // Repeats the prompt until player exits the program using the "exit" command.
     {
         // Get user input
-        string userInput = getCommand(userInput);
-        Command command(userInput);
+        UserInput userInput;
+        Command command(userInput.getProcessedInput());
         
         // Parse commands
         if (command.name == "exit") {

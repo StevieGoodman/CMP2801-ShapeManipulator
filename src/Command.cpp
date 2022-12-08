@@ -1,7 +1,8 @@
 #include <sstream>
 #include "Command.h"
+#include "UserInput.h"
 
-Command::Command(const string& input) {
+Command::Command(const string & input) {
     stringstream stream(input);
     string current_word;
     string command;
