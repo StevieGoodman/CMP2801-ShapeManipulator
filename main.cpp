@@ -23,28 +23,13 @@ using namespace std;
 #include <sstream>
 #include <string>
 #include <vector>
+#include "src/Command.h"
 //#include "Shape.h"
 //#include "Circle.h"
 //#include "Rectangle.h"
 //#include "Square.h"
 //#include "Movable.h"
 
-
-/// Takes a string and parses it into a command and command arguments. 
-/// Returns a tuple, with the first element being the command, and the second being the vector of arguments.
-tuple<string, vector<string>> tokenize(const string &userCommand) {
-    tuple<string, vector<string>> result;
-    stringstream stream(userCommand);
-    string current_word;
-    string command;
-    vector<string> arguments;
-    while (stream >> current_word) {
-        arguments.push_back(current_word);
-    }
-    command = arguments.front();
-    arguments.erase(arguments.begin()); // Removes the command from the arguments vector.
-    return make_tuple(command, arguments);
-}
 
 /// Prompts user for a command and returns the user's case insensitive input.
 /// Tags: lambda functions, functional programming
@@ -63,18 +48,16 @@ int main()
     while (true) // Repeats the prompt until player exits the program using the "exit" command.
     {
         // Get user input
-        string userCommand = getCommand(userCommand);
-        tuple<string, vector<string>> token_tuple = tokenize(userCommand);
-        string command           = get<0>(token_tuple);
-        vector<string> arguments = get<1>(token_tuple);
+        string userInput = getCommand(userInput);
+        Command command(userInput);
         
         // Parse commands
-        if (command == "exit") {
+        if (command.name == "exit") {
             // Exits the program.
             cout << "Exiting shape manipulator!" << endl;
             break;
         }
-        else if (command == "addr") {
+        else if (command.name == "addr") {
             cout << "Adding rectangle!" << endl;
 //            // get parameters in the correct order
 //            // The following four lines have a type mismatch error
@@ -92,7 +75,7 @@ int main()
 //            cout << r->toString(); /* instead of this, you may implement operator overloadig and 
 //									use cout << r which will give you additional points */
         }
-        else if (command == "adds") {
+        else if (command.name == "adds") {
             cout << "Adding square!" << endl;
 //            // get parameters
 //            // ...
@@ -100,7 +83,7 @@ int main()
 //            shapes.push_back(s);
 //            cout << s->toString();
         }
-        else if (command == "addc") {
+        else if (command.name == "addc") {
             cout << "Adding circle!" << endl;
 //            // get parameters
 //            // ...
@@ -108,7 +91,7 @@ int main()
 //            shapes.push_back(c);
 //            cout << c->toString();
         }
-        else if (command == "scale") {
+        else if (command.name == "scale") {
             cout << "Scaling shape!" << endl;
             // scale object at index... the scaling needs to be isotropic in case of circle and square 
             // you may want to check if the index exists or not!
@@ -118,7 +101,7 @@ int main()
             // You may need to use type casting wisely to use polymorphic functionality!
 
         }
-        else if (command == "move") {
+        else if (command.name == "move") {
             cout << "Moving shape!" << endl;
 //            // move object at index 
 //            int shapeNo; // read from parameters
@@ -134,7 +117,7 @@ int main()
 //            // if toString is not a virtual function, you may see the base class functionality :(
 //            cout << shapes[shapeNo - 1]->toString();
         }
-        else if (command == "display") {
+        else if (command.name == "display") {
             cout << "Displaying list of shapes!" << endl;
             // this is not given in our example, but why don't you implement a display function which shows all objects stored in shapes?
         }
