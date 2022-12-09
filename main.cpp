@@ -18,13 +18,13 @@ GOOD LUCK!
 
 #include <iostream>
 #include <string>
-#include "src/Command.h"
-#include "src/UserInput.h"
-//#include "Shape.h"
-//#include "Circle.h"
-//#include "Rectangle.h"
-//#include "Square.h"
-//#include "Movable.h"
+#include "src/misc/command/command.h"
+#include "src/misc/input/input.h"
+#include "src/shapes/shape/shape.h"
+#include "src/shapes/circle/circle.h"
+#include "src/shapes/rectangle/rectangle.h"
+#include "src/shapes/square/square.h"
+#include "src/shapes/movable/movable.h"
 
 int main()
 {
@@ -33,7 +33,7 @@ int main()
     while (true) // Repeats the prompt until player exits the program using the "exit" command.
     {
         // Get user input
-        UserInput userInput;
+        Input userInput;
         Command command(userInput.getProcessedInput());
         
         // Parse commands

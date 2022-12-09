@@ -2,9 +2,9 @@ using namespace std;
 #include <iostream>
 #include <regex>
 #include <sstream>
-#include "UserInput.h"
+#include "input.h"
 
-UserInput::UserInput() {
+Input::Input() {
     cout << "Please type in a command: ";
     string userInput;
     getline(cin, userInput);
@@ -13,14 +13,14 @@ UserInput::UserInput() {
     this->_processedInput = userInput;
 }
 
-void UserInput::toLowercase(string &input) {
+void Input::toLowercase(string &input) {
     transform(input.begin(), 
               input.end(), 
               input.begin(),
               [](char character){ return tolower(character); });
 }
 
-void UserInput::removeCharacters(string &input) {
+void Input::removeCharacters(string &input) {
     stringstream output;
     regex_replace(
             std::ostreambuf_iterator<char>(output), 
@@ -31,6 +31,6 @@ void UserInput::removeCharacters(string &input) {
     input = output.str();
 }
 
-string UserInput::getProcessedInput() {
+string Input::getProcessedInput() {
     return this->_processedInput;
 }

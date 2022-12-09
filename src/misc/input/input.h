@@ -1,13 +1,13 @@
-#ifndef ASSESSMENT_2_USERINPUT_H
-#define ASSESSMENT_2_USERINPUT_H
+#ifndef ASSESSMENT_2_INPUT_H
+#define ASSESSMENT_2_INPUT_H
 
 using namespace std;
 #include <string>
 
-class UserInput {
+class Input {
 public:
     /// Prompts user for input and stores case insensitive response in userInput. 
-    explicit UserInput();
+    explicit Input();
     /// Returns the value of private member field _processedInput.
     string getProcessedInput();
 private:
@@ -20,4 +20,4 @@ private:
     void toLowercase(string & input);
 };
 
-#endif //ASSESSMENT_2_USERINPUT_H
+#endif //ASSESSMENT_2_INPUT_H

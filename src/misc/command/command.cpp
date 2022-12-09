@@ -1,6 +1,6 @@
 #include <sstream>
-#include "Command.h"
-#include "UserInput.h"
+#include "command.h"
+#include "../input/input.h"
 
 Command::Command(const string & input) {
     stringstream stream(input);
