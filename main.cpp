@@ -1,20 +1,22 @@
-/* ------------------------------------------------------
-CMP2801M: Advanced Programming
-Driver program for assignment 
-Fall 2019
+/* ───────────────────────────────────────────────────────────────────────── *\
 
-Written by Ayse Kucukyilmaz
+ # Program Structure
+ Classes are separated into implementation and header files.
+ You can find them in their respective class directories:
+     
+    └ src
+      ├ misc      → Contains helper classes used to encapsulate functionality.
+      │ ├ command   → Used to process a command into a command name and arguments.
+      │ └ input     → Used to prompt for and process user input.
+      └ shapes    → Contains classes used in directly in shape manipulation.
+        ├ circle    → A square, but rounder.
+        ├ movable   → Abstract class that provides polymorphism for shape movement.
+        ├ point     → Represents a point on a 2D plane.
+        ├ rectangle → A square, but longer.
+        ├ shape     → Abstract class from which non-abstract shape classes derive from.
+        └ square    → A rectangle, but shorter.
 
-This file is a representative test file. 
-During marking, we will use the exact same notation 
-as provided in the brief, so make sure
-you follow that guideline. Also make sure that you don't 
-change the main body provided to you here.
-Otherwise, your code may not pass the test cases...
-
-GOOD LUCK! 
-
------------------------------------------------------- */
+\* ───────────────────────────────────────────────────────────────────────── */
 
 #include <iostream>
 #include <string>
