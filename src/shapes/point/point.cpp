@@ -9,3 +9,10 @@ float Point::getX() const {
 float Point::getY() const {
     return _y;
 }
+
+Point Point::operator+(Point other) const {
+    return {
+            this->getX() + other.getX(), 
+            this->getY() + other.getY()
+    };
+}

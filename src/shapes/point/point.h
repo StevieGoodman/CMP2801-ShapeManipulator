@@ -10,6 +10,8 @@ public:
     float getX() const;
     /// Getter method for private member field _y.
     float getY() const;
+    /// Overloads the addition operator.
+    Point operator+(Point other) const;
 
 private:
     /// Horizontal component of position in 2D space.
