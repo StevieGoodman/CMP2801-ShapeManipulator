@@ -9,6 +9,8 @@ using namespace std;
 /// Abstract class that all other shape classes derive functionality and fields from.
 class Shape {
 public:
+    /// Creates a new shape from a position.
+    explicit Shape(const Point &leftTop);
     /// Calculates the area of the shape and mutates the private member field _area accordingly.
     virtual void calculateArea() = 0;
     /// Calculates the perimeter of the shape and mutates the private member field _perimeter accordingly.
@@ -18,7 +20,7 @@ public:
     /// Returns a string containing characteristics of the shape.
     virtual string toString() = 0;
     
-private:
+protected:
     /// The total enclosed area of this shape.
     float _area;
     /// The total surface area of this shape.
