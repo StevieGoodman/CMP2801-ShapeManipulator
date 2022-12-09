@@ -13,9 +13,9 @@ public:
 
 private:
     /// Horizontal component of position in 2D space.
-    const float _x;
+    float _x;
     /// Vertical component of position in 2D space.
-    const float _y;
+    float _y;
 };
 
 
