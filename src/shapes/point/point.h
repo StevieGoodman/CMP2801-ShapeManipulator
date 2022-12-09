@@ -1,6 +1,9 @@
 #ifndef ASSESSMENT_2_POINT_H
 #define ASSESSMENT_2_POINT_H
 
+using namespace std;
+#include <string>
+
 /// Represents a point in space on a 2D plane.
 class Point {
 public:
@@ -10,6 +13,8 @@ public:
     float getX() const;
     /// Getter method for private member field _y.
     float getY() const;
+    /// Returns a string describing the point.
+    string toString();
     /// Overloads the addition operator.
     Point operator+(Point other) const;
 
