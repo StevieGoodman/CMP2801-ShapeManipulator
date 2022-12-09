@@ -8,6 +8,8 @@ using namespace std;
 
 /// Abstract class that all other shape classes derive functionality and fields from.
 class Shape {
+    friend class Movable;
+    
 public:
     /// Creates a new shape from a position.
     explicit Shape(const Point &leftTop);
