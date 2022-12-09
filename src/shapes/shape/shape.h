@@ -12,11 +12,11 @@ public:
     /// Creates a new shape from a position.
     explicit Shape(const Point &leftTop);
     /// Calculates the area of the shape and mutates the private member field _area accordingly.
-    virtual void calculateArea() = 0;
+    virtual float calculateArea() = 0;
     /// Calculates the perimeter of the shape and mutates the private member field _perimeter accordingly.
-    virtual void calculatePerimeter() = 0;
+    virtual float calculatePerimeter() = 0;
     /// Calculates the position of each vertex and mutates the private member field _points accordingly.
-    virtual void calculatePoints() = 0;
+    virtual float calculatePoints() = 0;
     /// Returns a string containing characteristics of the shape.
     virtual string toString() = 0;
     
