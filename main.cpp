@@ -9,13 +9,34 @@
       │ ├ command   → Used to process a command into a command name and arguments.
       │ └ input     → Used to prompt for and process user input.
       └ shapes    → Contains classes used in directly in shape manipulation.
-        ├ circle    → A square, but rounder.
+        ├ plane     → Container for shape objects on a 2D plane.
+        ├ shape     → Abstract class from which non-abstract shape classes derive from.
         ├ movable   → Abstract class that provides polymorphism for shape movement.
         ├ point     → Represents a point on a 2D plane.
+        ├ square    → A rectangle, but shorter.
         ├ rectangle → A square, but longer.
-        ├ shape     → Abstract class from which non-abstract shape classes derive from.
-        └ square    → A rectangle, but shorter.
+        └ circle    → A square, but rounder.
 
+ # Grading
+ Here's a rundown of where you can find various programming features, for your convenience 😁:
+
+    Lambda Functions   ─ input::Input::toLowercase()
+    Functional Prog.   ─ input::Input::toLowercase()
+    Abstract Classes   ┬ shape::Shape
+                       └ movable::Movable
+    Access Modifiers   ─ input::Input
+    Memory Manage.     ─ plane::Plane::~Plane()
+    Add. Features      ─ main::main()
+    Polymorphism       ┬ shape::Shape
+                       ├ circle::Circle
+                       ├ square::Square
+                       └ rectangle::Rectangle
+    Overloading        ─ shape::Shape::operator<<()
+    Inheritance        ┬ circle::Circle
+                       ├ square::Square
+                       └ rectangle::Rectangle
+    Pointers           ─ plane::Plane::_shapes
+ 
 \* ───────────────────────────────────────────────────────────────────────── */
 
 #include <iostream>
