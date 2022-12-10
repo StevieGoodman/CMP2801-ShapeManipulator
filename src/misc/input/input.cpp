@@ -25,7 +25,7 @@ void Input::removeCharacters(string &input) {
             std::ostreambuf_iterator<char>(output), 
             input.begin(), 
             input.end(), 
-            regex("[^a-zA-Z0-9 ]"), 
+            regex("[^a-zA-Z0-9. ]"), 
             "");
     input = output.str();
 }
