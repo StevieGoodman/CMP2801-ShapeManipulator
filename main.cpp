@@ -53,7 +53,11 @@
 
 int main()
 {
-    cout << "=== SHAPE MANIPULATOR ===" << endl;
+    // Display introduction to the user.
+    const string INTRO_TEXT = 
+            "=== SHAPE MANIPULATOR ==="
+            "\nPlease use the \"Help\" command to familiarise yourself.";
+    cout << INTRO_TEXT << endl;
     
     auto* plane = new Plane;
     while (true) // Repeats the prompt until player exits the program using the "exit" command.
