@@ -134,6 +134,20 @@ int main()
             cout << "Displaying list of shapes!" << endl;
             // this is not given in our example, but why don't you implement a display function which shows all objects stored in shapes?
         }
+        else if (command.name == "help") {
+            const string HELP_OUTPUT =
+                    "COMMANDS:"
+                    "\n\tAddS [x] [y] [s]     │ Adds a square to position {x, y} with size {s, s}"
+                    "\n\tAddR [x] [y] [w] [h] │ Adds a rectangle to position {x, y} with size {w, h}"
+                    "\n\tAddC [x] [y] [r]     │ Adds a circle to position {x, y} with radius r"
+                    "\n\tRemove [n]           │ Removes the nth shape from the plane"
+                    "\n\tClear                │ Clears all shapes from the plane"
+                    "\n\tList [n]             │ Lists each shape in the plane, alongside their index & position"
+                    "\n\tInfo [n]             │ Displays information about the nth shape in the plane"
+                    "\n\tHelp                 │ Displays the full list of commands"
+                    "\n\tExit                 │ Quits the program";
+            cout << HELP_OUTPUT << endl;
+        }
         else {
             cout << "Command not recognised. Please enter a valid command." << endl;
         }
