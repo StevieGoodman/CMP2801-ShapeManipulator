@@ -74,21 +74,7 @@ int main()
         }
         else if (command.name == "addr") {
             cout << "Adding rectangle!" << endl;
-//            // get parameters in the correct order
-//            // The following four lines have a type mismatch error
-//            // note that the parameters vector contains ascii values
-//            // HINT: stoi function converts from string to int
-//
-//            x = parameters[1].c_str(); // fix me! also note that x is not previously defined :(
-//            // int y = ...
-//            // int h = ...
-//            // int w = ...
-//
-//
-//            Rectangle* r = new Rectangle(x, y, h, w);
-//            shapes.push_back(r);
-//            cout << r->toString(); /* instead of this, you may implement operator overloadig and 
-//									use cout << r which will give you additional points */
+            // TODO: Implement "addR" command.
         }
         else if (command.name == "adds") {
             // Add a new square to the 2D plane.
@@ -102,11 +88,7 @@ int main()
         }
         else if (command.name == "addc") {
             cout << "Adding circle!" << endl;
-//            // get parameters
-//            // ...
-//            Circle* c = new Circle(x, y, r);
-//            shapes.push_back(c);
-//            cout << c->toString();
+            // TODO: Implement "addC" command.
         }
         else if (command.name == "scale") {
             // Move the nth shape in the plane to a given position.
@@ -125,7 +107,7 @@ int main()
             plane->moveShape(index, new Point(xPos, yPos));
             cout << "Moved shape!" << endl;
         }
-        else if (command.name == "display") {
+        else if (command.name == "list") {
             cout << "Displaying list of shapes!" << endl;
             // TODO: Implement "list" command.
         }
@@ -164,8 +146,8 @@ int main()
             cout << "Command not recognised. Please enter a valid command." << endl;
         }
 
-        // do any necessary postprocessing at the end of each loop...
-        // yes, there is some necessary postprocessing...
+        // TODO: Perform memory management.
+        
         cout << endl;
     }
     delete plane;
