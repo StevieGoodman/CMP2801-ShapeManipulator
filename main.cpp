@@ -109,34 +109,42 @@ int main()
 //            cout << c->toString();
         }
         else if (command.name == "scale") {
-            cout << "Scaling shape!" << endl;
-            // scale object at index... the scaling needs to be isotropic in case of circle and square 
-            // you may want to check if the index exists or not!
-
-            // Multiple inhertitance is tricky! The Shape class does nto have a scale function, the Movable does!
-            // As a result all your derived classes have scale functions... 
-            // You may need to use type casting wisely to use polymorphic functionality!
-
+            // Move the nth shape in the plane to a given position.
+            if (!command.hasArguments(2)) { continue; }
+            int index = stoi(command.arguments.at(0));
+            float multiplier = stof(command.arguments.at(1));
+            plane->scaleShape(index, multiplier);
+            cout << "Scaled shape!" << endl;
         }
         else if (command.name == "move") {
-            cout << "Moving shape!" << endl;
-//            // move object at index 
-//            int shapeNo; // read from parameters
-//            // you may want to check if the index exists or not!
-//
-//            // Study the following code. A Shape object is not Movable, but all derived classes are...
-//            // you can't automatically type cast from a Shape to a Movable, but you can force a downcasting
-//            Movable *m = dynamic_cast<Movable*>(shapes[shapeNo - 1]);
-//            m->move(x, y);
-//            // scale should work similarly...
-//
-//            // note that here you should see the corresponding toString output for the derived classes...
-//            // if toString is not a virtual function, you may see the base class functionality :(
-//            cout << shapes[shapeNo - 1]->toString();
+            // Move the nth shape in the plane to a given position.
+            if (!command.hasArguments(3)) { continue; }
+            int index = stoi(command.arguments.at(0));
+            float xPos = stof(command.arguments.at(1));
+            float yPos = stof(command.arguments.at(2));
+            plane->moveShape(index, new Point(xPos, yPos));
+            cout << "Moved shape!" << endl;
         }
         else if (command.name == "display") {
             cout << "Displaying list of shapes!" << endl;
-            // this is not given in our example, but why don't you implement a display function which shows all objects stored in shapes?
+            // TODO: Implement "list" command.
+        }
+        else if (command.name == "remove") {
+            // Remove nth shape from the plane.
+            if (!command.hasArguments(1)) { continue; }
+            int index = stoi(command.arguments.at(0));
+            plane->removeShape(index);
+            cout << "Removed shape!" << endl;
+        }
+        else if (command.name == "clear") {
+            cout << "Clearing the plane!" << endl;
+            // TODO: Implement "clear" command.
+        }
+        else if (command.name == "info") {
+            // Displays information about the nth shape on the plane.
+            if (!command.hasArguments(1)) { continue; }
+            int index = stoi(command.arguments.at(0));
+            cout << plane->getInfo(index) << endl;
         }
         else if (command.name == "help") {
             const string HELP_OUTPUT =
