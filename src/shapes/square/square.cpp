@@ -50,10 +50,12 @@ string Square::toString() {
             this->_points.at(3)->toString();
     string area      = to_string(this->_area);
     string perimeter = to_string(this->_perimeter);
+    string circular  = (to_string(this->_isCircular) == "1") ? "Yes" : "No";
     return "Position: " + position 
     + "\nSize: " + size
     + "\nArea: " + area
     + "\nPerimeter: " + perimeter
+    + "\nCircular: " + circular
     + "\nPoints: " + points;
 }
 
