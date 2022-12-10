@@ -16,7 +16,7 @@ public:
     /// Moves the nth shape to a new location on the plane.
     void moveShape(int index, Point* newPos);
     /// Scales the nth shape on the plane by a given multiplier.
-    void scaleShape(int index, float multiplier);
+    void scaleShape(int index, float xMultiplier, float yMultiplier);
     /// Gets detailed information on the nth shape on the plane.
     string getInfo(int index);
 private:
