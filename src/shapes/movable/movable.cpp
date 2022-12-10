@@ -2,7 +2,7 @@
 #include "../shape/shape.h"
 
 void Movable::move(Point *newLeftTop) {
-    auto* object = dynamic_cast<Shape*>(this);
-    object->_leftTop = newLeftTop;
-    object->calculatePoints();
+    auto* shape = dynamic_cast<Shape*>(this);
+    shape->_leftTop = newLeftTop;
+    shape->calculatePoints();
 }
