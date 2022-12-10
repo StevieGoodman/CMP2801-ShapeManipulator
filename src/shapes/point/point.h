@@ -16,7 +16,9 @@ public:
     /// Returns a string describing the point.
     string toString();
     /// Overloads the addition operator.
-    Point operator+(Point other) const;
+    Point * operator+(Point other) const;
+
+    virtual ~Point();
 
 private:
     /// Horizontal component of position in 2D space.

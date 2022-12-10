@@ -10,11 +10,11 @@ float Point::getY() const {
     return _y;
 }
 
-Point Point::operator+(Point other) const {
-    return {
+Point* Point::operator+(Point other) const {
+    return new Point(
             this->getX() + other.getX(), 
             this->getY() + other.getY()
-    };
+    );
 }
 
 string Point::toString() {
