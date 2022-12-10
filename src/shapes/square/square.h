@@ -1,9 +1,23 @@
 #ifndef ASSESSMENT_2_SQUARE_H
 #define ASSESSMENT_2_SQUARE_H
 
+#include "../shape/shape.h"
+#include "../movable/movable.h"
 
-class Square {
-
+/// A quadrilateral with perpendicular sides with equal lengths.
+class Square : public Shape, public Movable {
+public:
+    /// Creates a new square from a position and size.
+    Square(Point* leftTop, float size);
+    void scale(float multiplier) override;
+    float calculateArea() override;
+    float calculatePerimeter() override;
+    vector<Point*> calculatePoints() override;
+    string toString() override;
+    
+private:
+    /// The length of each side of the square.
+    float _edge;
 };
 
 

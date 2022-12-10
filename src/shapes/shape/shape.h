@@ -2,7 +2,6 @@
 #define ASSESSMENT_2_SHAPE_H
 
 using namespace std;
-
 #include <vector>
 #include "../point/point.h"
 
@@ -12,13 +11,13 @@ class Shape {
     
 public:
     /// Creates a new shape from a position.
-    explicit Shape(const Point &leftTop);
+    explicit Shape(Point* leftTop);
     /// Calculates the area of the shape and mutates the private member field _area accordingly.
     virtual float calculateArea() = 0;
     /// Calculates the perimeter of the shape and mutates the private member field _perimeter accordingly.
     virtual float calculatePerimeter() = 0;
     /// Calculates the position of each vertex and mutates the private member field _points accordingly.
-    virtual float calculatePoints() = 0;
+    virtual vector<Point*> calculatePoints() = 0;
     /// Returns a string containing characteristics of the shape.
     virtual string toString() = 0;
     
@@ -30,7 +29,7 @@ protected:
     /// Used for determining if the shape is circular.
     bool _isCircular;
     /// Top-left-most point of the shape.
-    Point _leftTop;
+    Point* _leftTop;
     /// Vector containing all the vertices of the shape.
     vector<Point *> _points;
 };

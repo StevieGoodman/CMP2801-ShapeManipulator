@@ -18,8 +18,6 @@ public:
     /// Overloads the addition operator.
     Point * operator+(Point other) const;
 
-    virtual ~Point();
-
 private:
     /// Horizontal component of position in 2D space.
     float _x;
