@@ -7,7 +7,7 @@
 class Movable {
 public:
     /// Mutates the shape's private _leftTop and _points fields.
-    void move(Point *newLeftTop);
+    virtual void move(Point *newLeftTop) = 0;
     /// Mutates the shape's size by multiplying its current size with a given multiplier.
     virtual void scale(float multiplier) = 0;
 };
