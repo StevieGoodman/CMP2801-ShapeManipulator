@@ -17,6 +17,6 @@ Point* Point::operator+(Point other) const {
     );
 }
 
-string Point::toString() {
+string Point::toString() const {
     return "{" + to_string(this->getX()) + ", " + to_string(this->getY()) + "}";
 }

@@ -14,7 +14,7 @@ public:
     /// Getter method for private member field _y.
     float getY() const;
     /// Returns a string describing the point.
-    string toString();
+    string toString() const;
     /// Overloads the addition operator.
     Point * operator+(Point other) const;
 
