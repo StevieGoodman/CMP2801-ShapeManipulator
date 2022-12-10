@@ -14,17 +14,17 @@ void Plane::addShape(Shape *shape) {
 }
 
 void Plane::removeShape(int index) {
-    this->_shapes.erase(next(_shapes.begin(), index));
+    this->_shapes.erase(next(_shapes.begin(), index-1));
 }
 
 void Plane::moveShape(int index, Point* newPos) {
-    dynamic_cast<Movable*>(this->_shapes.at(index))->move(newPos);
+    dynamic_cast<Movable*>(this->_shapes.at(index-1))->move(newPos);
 }
 
 void Plane::scaleShape(int index, float multiplier) {
-    dynamic_cast<Movable*>(this->_shapes.at(index))->scale(multiplier);
+    dynamic_cast<Movable*>(this->_shapes.at(index-1))->scale(multiplier);
 }
 
 string Plane::getInfo(int index) {
-    return this->_shapes.at(index)->toString();
+    return this->_shapes.at(index-1)->toString();
 }
