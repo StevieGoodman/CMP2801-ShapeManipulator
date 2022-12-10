@@ -56,3 +56,8 @@ string Square::toString() {
     + "\nPerimeter: " + perimeter
     + "\nPoints: " + points;
 }
+
+void Square::move(Point *newLeftTop) {
+    this->_leftTop = newLeftTop;
+    this->calculatePoints();
+}

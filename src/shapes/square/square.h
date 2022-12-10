@@ -9,6 +9,9 @@ class Square : public Shape, public Movable {
 public:
     /// Creates a new square from a position and size.
     Square(Point* leftTop, float size);
+
+    void move(Point *newLeftTop) override;
+
     void scale(float multiplier) override;
     void calculateArea() override;
     void calculatePerimeter() override;
