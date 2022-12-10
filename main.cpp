@@ -20,7 +20,8 @@
  # Grading
  Here's a rundown of where you can find various programming features, for your convenience 😁:
 
-    Lambda Functions   ─ input::Input::toLowercase()
+    Lambda Functions   ┬ input::Input::toLowercase()
+                       └ plane::Plane::~Plane()
     Functional Prog.   ─ input::Input::toLowercase()
     Abstract Classes   ┬ shape::Shape
                        └ movable::Movable
@@ -48,11 +49,13 @@
 #include "src/shapes/rectangle/rectangle.h"
 #include "src/shapes/square/square.h"
 #include "src/shapes/movable/movable.h"
+#include "src/shapes/plane/plane.h"
 
 int main()
 {
     cout << "=== SHAPE MANIPULATOR ===" << endl;
     
+    auto* plane = new Plane;
     while (true) // Repeats the prompt until player exits the program using the "exit" command.
     {
         // Get user input
@@ -61,7 +64,7 @@ int main()
         
         // Parse commands
         if (command.name == "exit") {
-            // Exits the program.
+            // Exit the program.
             cout << "Exiting shape manipulator!" << endl;
             break;
         }
@@ -84,12 +87,14 @@ int main()
 //									use cout << r which will give you additional points */
         }
         else if (command.name == "adds") {
-            cout << "Adding square!" << endl;
-//            // get parameters
-//            // ...
-//            Square* s = new Square(x, y, e);
-//            shapes.push_back(s);
-//            cout << s->toString();
+            // Add a new square to the 2D plane.
+            if (!command.hasArguments(3)) { continue; }
+            float xPos = stof(command.arguments.at(0));
+            float yPos = stof(command.arguments.at(1));
+            float size = stof(command.arguments.at(2));
+            auto* newSquare = new Square(new Point(xPos, yPos), size);
+            plane->addShape(newSquare);
+            cout << "Added square!" << endl;
         }
         else if (command.name == "addc") {
             cout << "Adding circle!" << endl;
@@ -137,6 +142,7 @@ int main()
         // yes, there is some necessary postprocessing...
         cout << endl;
     }
+    delete plane;
     
     return 0;
 }
