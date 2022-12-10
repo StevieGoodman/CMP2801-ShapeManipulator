@@ -10,9 +10,9 @@ public:
     /// Creates a new square from a position and size.
     Square(Point* leftTop, float size);
     void scale(float multiplier) override;
-    float calculateArea() override;
-    float calculatePerimeter() override;
-    vector<Point*> calculatePoints() override;
+    void calculateArea() override;
+    void calculatePerimeter() override;
+    void calculatePoints() override;
     string toString() override;
     
 private:
