@@ -92,10 +92,21 @@ int main()
         }
         else if (command.name == "scale") {
             // Move the nth shape in the plane to a given position.
-            if (!command.hasArguments(2)) { continue; }
-            int index = stoi(command.arguments.at(0));
-            float multiplier = stof(command.arguments.at(1));
-            plane->scaleShape(index, multiplier);
+            int index;
+            float xMultiplier;
+            float yMultiplier;
+            if (command.hasArguments(2)) {
+                index = stoi(command.arguments.at(0));
+                xMultiplier = stof(command.arguments.at(1));
+                yMultiplier = xMultiplier;
+            }
+            else if (command.hasArguments(3)) {
+                index = stoi(command.arguments.at(0));
+                xMultiplier = stof(command.arguments.at(1));
+                yMultiplier = stof(command.arguments.at(2));
+            }
+            else { continue; }
+            plane->scaleShape(index, xMultiplier, yMultiplier);
             cout << "Scaled shape!" << endl;
         }
         else if (command.name == "move") {
