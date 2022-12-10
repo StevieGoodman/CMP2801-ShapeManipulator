@@ -10,7 +10,7 @@ public:
     /// Creates a new square from a position and size.
     Square(Point* leftTop, float size);
     void move(Point *newLeftTop) override;
-    void scale(float multiplier) override;
+    void scale(float xMultiplier, float yMultiplier) override;
     void calculateArea() override;
     void calculatePerimeter() override;
     void calculatePoints() override;

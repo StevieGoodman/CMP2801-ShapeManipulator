@@ -12,8 +12,8 @@ Square::Square(Point* leftTop, float size)
     calculatePoints();
 }
 
-void Square::scale(float multiplier) {
-    this->_edge *= multiplier;
+void Square::scale(float xMultiplier, float yMultiplier) {
+    this->_edge *= xMultiplier;
     calculatePoints();
     calculateArea();
     calculatePerimeter();
