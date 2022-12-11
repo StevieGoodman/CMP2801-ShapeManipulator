@@ -28,3 +28,8 @@ void Plane::scaleShape(int index, float xMultiplier, float yMultiplier) {
 string Plane::getInfo(int index) {
     return this->_shapes.at(index-1)->toString();
 }
+
+void Plane::transformShape(int index, Point offset) {
+    Shape* shape = this->_shapes.at(index-1);
+    dynamic_cast<Movable*>(shape)->move(*shape->_leftTop + offset);
+}

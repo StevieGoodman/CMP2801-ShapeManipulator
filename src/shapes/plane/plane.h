@@ -15,6 +15,8 @@ public:
     void removeShape(int index);
     /// Moves the nth shape to a new location on the plane.
     void moveShape(int index, Point* newPos);
+    /// Offsets a shape's position by a given offset.
+    void transformShape(int index, Point offset);
     /// Scales the nth shape on the plane by a given multiplier.
     void scaleShape(int index, float xMultiplier, float yMultiplier);
     /// Gets detailed information on the nth shape on the plane.
