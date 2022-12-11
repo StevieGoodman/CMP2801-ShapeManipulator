@@ -35,6 +35,7 @@ void Plane::transformShape(int index, Point offset) {
 }
 
 void Plane::clearList() {
+    if (this->_shapes.empty()) { return; } // Prevents segmentation faults when plane is empty.
     for (int index=0; index<=this->_shapes.size(); index++) {
         removeShape(index);
     }
