@@ -1,3 +1,5 @@
+using namespace std;
+#include <algorithm>
 #include "plane.h"
 #include "../movable/movable.h"
 
@@ -14,22 +16,27 @@ void Plane::addShape(Shape *shape) {
 }
 
 void Plane::removeShape(int index) {
+    clampIndex(index);
     this->_shapes.erase(next(_shapes.begin(), index-1));
 }
 
 void Plane::moveShape(int index, Point* newPos) {
+    clampIndex(index);
     dynamic_cast<Movable*>(this->_shapes.at(index-1))->move(newPos);
 }
 
 void Plane::scaleShape(int index, float xMultiplier, float yMultiplier) {
+    clampIndex(index);
     dynamic_cast<Movable *>(this->_shapes.at(index-1))->scale(xMultiplier, -1);
 }
 
 string Plane::getInfo(int index) {
+    clampIndex(index);
     return this->_shapes.at(index-1)->toString();
 }
 
 void Plane::transformShape(int index, Point offset) {
+    clampIndex(index);
     Shape* shape = this->_shapes.at(index-1);
     dynamic_cast<Movable*>(shape)->move(*shape->_leftTop + offset);
 }
@@ -51,4 +58,9 @@ void Plane::printList() {
         output << "There are no shapes on the plane! 🥲"; 
     }
     cout << output.str() << endl;
+}
+
+void Plane::clampIndex(int &index) const {
+    index = min((int)this->_shapes.size(), max(index, 1));
+    cout << index;
 }
