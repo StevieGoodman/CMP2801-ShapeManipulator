@@ -20,3 +20,8 @@ Point* Point::operator+(Point other) const {
 string Point::toString() const {
     return "{" + to_string(this->getX()) + ", " + to_string(this->getY()) + "}";
 }
+
+ostream &operator<<(ostream &os, const Point &point) {
+    os << "x: " << point._x << ", y: " << point._y;
+    return os;
+}
