@@ -33,3 +33,9 @@ void Plane::transformShape(int index, Point offset) {
     Shape* shape = this->_shapes.at(index-1);
     dynamic_cast<Movable*>(shape)->move(*shape->_leftTop + offset);
 }
+
+void Plane::clearList() {
+    for (int index=0; index<=this->_shapes.size(); index++) {
+        removeShape(index);
+    }
+}
