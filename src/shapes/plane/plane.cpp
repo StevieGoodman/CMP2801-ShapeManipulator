@@ -62,5 +62,4 @@ void Plane::printList() {
 
 void Plane::clampIndex(int &index) const {
     index = min((int)this->_shapes.size(), max(index, 1));
-    cout << index;
 }
