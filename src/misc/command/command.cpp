@@ -19,6 +19,14 @@ bool Command::hasArguments(const int count) {
     return this->arguments.size() == count;
 }
 
-bool Command::isValid() {
-    return this->name.empty();
+bool Command::argumentsValid() {
+    return std::all_of(
+    this->arguments.begin(), 
+    this->arguments.end(), 
+    [](string argument) {
+        return std::all_of(
+        argument.begin(), 
+        argument.end(),
+        [](char character){ return isdigit(character) | (character == '-'); });
+    });
 }
