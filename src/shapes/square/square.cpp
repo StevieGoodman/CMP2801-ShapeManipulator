@@ -6,6 +6,7 @@ using namespace std;
 
 Square::Square(Point* leftTop, float size) 
     : Shape(leftTop), _edge(size) {
+    this->name = __func__;
     this->_isCircular = false;
     calculateArea();
     calculatePerimeter();

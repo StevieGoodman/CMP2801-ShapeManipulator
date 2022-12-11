@@ -3,6 +3,7 @@
 
 using namespace std;
 #include <string>
+#include <ostream>
 
 /// Represents a point in space on a 2D plane.
 class Point {
@@ -17,6 +18,8 @@ public:
     string toString() const;
     /// Overloads the addition operator.
     Point * operator+(Point other) const;
+
+    friend ostream &operator<<(ostream &os, const Point &point);
 
 private:
     /// Horizontal component of position in 2D space.
