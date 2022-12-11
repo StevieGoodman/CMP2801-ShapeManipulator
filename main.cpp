@@ -103,12 +103,12 @@ int main()
             float xMultiplier;
             float yMultiplier;
             if (command.hasArguments(2)) {
-                index = abs(abs(stoi(arguments.at(0))));
+                index = stoi(arguments.at(0));
                 xMultiplier = abs(stof(arguments.at(1)));
                 yMultiplier = xMultiplier;
             }
             else if (command.hasArguments(3)) {
-                index = abs(stoi(arguments.at(0)));
+                index = stoi(arguments.at(0));
                 xMultiplier = abs(stof(arguments.at(1)));
                 yMultiplier = abs(stof(arguments.at(2)));
             }
@@ -119,7 +119,7 @@ int main()
         else if (commandName == "move") {
             // Move the nth shape in the plane to a given position.
             if (!command.hasArguments(3)) { continue; }
-            int index = abs(stoi(arguments.at(0)));
+            int index = stoi(arguments.at(0));
             float xPos = stof(arguments.at(1));
             float yPos = stof(arguments.at(2));
             plane->moveShape(index, new Point(xPos, yPos));
@@ -128,7 +128,7 @@ int main()
         else if (commandName == "transform") {
             // Move the nth shape in the plane to a given position.
             if (!command.hasArguments(3)) { continue; }
-            int index = abs(stoi(arguments.at(0)));
+            int index = stoi(arguments.at(0));
             float xOffset = stof(arguments.at(1));
             float yOffset = stof(arguments.at(2));
             plane->transformShape(index, Point(xOffset, yOffset));
@@ -140,7 +140,7 @@ int main()
         else if (commandName == "remove") {
             // Remove nth shape from the plane.
             if (!command.hasArguments(1)) { continue; }
-            int index = abs(stoi(arguments.at(0)));
+            int index = stoi(arguments.at(0));
             plane->removeShape(index);
             cout << "Removed shape!" << endl;
         }
@@ -151,7 +151,7 @@ int main()
         else if (commandName == "info") {
             // Displays information about the nth shape on the plane.
             if (!command.hasArguments(1)) { continue; }
-            int index = abs(stoi(arguments.at(0)));
+            int index = stoi(arguments.at(0));
             cout << plane->getInfo(index) << endl;
         }
         else if (commandName == "help") {
