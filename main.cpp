@@ -65,6 +65,12 @@ int main()
         Input userInput;
         Command command(userInput.getProcessedInput());
         
+        // Validates user input.
+        if (!command.argumentsValid()) {
+            cout << "You have provided an invalid set of arguments. Please try again." << endl << endl;
+            continue;
+        }
+        
         // Parse commands
         if (command.name == "exit") {
             // Exit the program.
@@ -80,7 +86,7 @@ int main()
             if (!command.hasArguments(3)) { continue; }
             float xPos = stof(command.arguments.at(0));
             float yPos = stof(command.arguments.at(1));
-            float size = stof(command.arguments.at(2));
+            float size = abs(stof(command.arguments.at(2)));
             auto* newSquare = new Square(new Point(xPos, yPos), size);
             plane->addShape(newSquare);
             cout << "Added square!" << endl;
@@ -95,14 +101,14 @@ int main()
             float xMultiplier;
             float yMultiplier;
             if (command.hasArguments(2)) {
-                index = stoi(command.arguments.at(0));
-                xMultiplier = stof(command.arguments.at(1));
+                index = abs(abs(stoi(command.arguments.at(0))));
+                xMultiplier = abs(stof(command.arguments.at(1)));
                 yMultiplier = xMultiplier;
             }
             else if (command.hasArguments(3)) {
-                index = stoi(command.arguments.at(0));
-                xMultiplier = stof(command.arguments.at(1));
-                yMultiplier = stof(command.arguments.at(2));
+                index = abs(stoi(command.arguments.at(0)));
+                xMultiplier = abs(stof(command.arguments.at(1)));
+                yMultiplier = abs(stof(command.arguments.at(2)));
             }
             else { continue; }
             plane->scaleShape(index, xMultiplier, yMultiplier);
@@ -111,7 +117,7 @@ int main()
         else if (command.name == "move") {
             // Move the nth shape in the plane to a given position.
             if (!command.hasArguments(3)) { continue; }
-            int index = stoi(command.arguments.at(0));
+            int index = abs(stoi(command.arguments.at(0)));
             float xPos = stof(command.arguments.at(1));
             float yPos = stof(command.arguments.at(2));
             plane->moveShape(index, new Point(xPos, yPos));
@@ -120,7 +126,7 @@ int main()
         else if (command.name == "transform") {
             // Move the nth shape in the plane to a given position.
             if (!command.hasArguments(3)) { continue; }
-            int index = stoi(command.arguments.at(0));
+            int index = abs(stoi(command.arguments.at(0)));
             float xOffset = stof(command.arguments.at(1));
             float yOffset = stof(command.arguments.at(2));
             plane->transformShape(index, Point(xOffset, yOffset));
@@ -132,7 +138,7 @@ int main()
         else if (command.name == "remove") {
             // Remove nth shape from the plane.
             if (!command.hasArguments(1)) { continue; }
-            int index = stoi(command.arguments.at(0));
+            int index = abs(stoi(command.arguments.at(0)));
             plane->removeShape(index);
             cout << "Removed shape!" << endl;
         }
@@ -143,7 +149,7 @@ int main()
         else if (command.name == "info") {
             // Displays information about the nth shape on the plane.
             if (!command.hasArguments(1)) { continue; }
-            int index = stoi(command.arguments.at(0));
+            int index = abs(stoi(command.arguments.at(0)));
             cout << plane->getInfo(index) << endl;
         }
         else if (command.name == "help") {

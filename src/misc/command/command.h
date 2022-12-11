@@ -18,10 +18,10 @@ public:
     Command(const string & input);
     
     /// Checks that a command object has a given amount of arguments.
-    bool hasArguments(int count);
+    bool hasArguments(int count) const;
     
-    /// Returns true if the command is valid (i.e. if it's not empty).
-    bool isValid();
+    /// Returns true if the command's arguments are numbers. Used for input validation.
+    bool argumentsValid();
 };
 
 #endif //ASSESSMENT_2_COMMAND_H
