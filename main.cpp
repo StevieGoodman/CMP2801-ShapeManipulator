@@ -128,8 +128,7 @@ int main()
             cout << "Transformed shape!" << endl;
         }
         else if (command.name == "list") {
-            cout << "Displaying list of shapes!" << endl;
-            // TODO: Implement "list" command.
+            plane->printList();
         }
         else if (command.name == "remove") {
             // Remove nth shape from the plane.
