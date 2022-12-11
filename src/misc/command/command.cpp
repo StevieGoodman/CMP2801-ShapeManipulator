@@ -32,6 +32,6 @@ bool Command::argumentsValid() {
         return std::all_of(
         argument.begin(), 
         argument.end(),
-        [](char character){ return isdigit(character) | (character == '-'); });
+        [](char ch){ return isdigit(ch) || (ch == '-') || (ch == '.'); });
     });
 }
