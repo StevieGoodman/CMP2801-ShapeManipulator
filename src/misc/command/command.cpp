@@ -19,6 +19,3 @@ bool Command::hasArguments(const int count) {
     return this->arguments.size() == count;
 }
 
-bool Command::isValid() {
-    return this->name.empty();
-}
