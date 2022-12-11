@@ -1,7 +1,9 @@
 #ifndef ASSESSMENT_2_PLANE_H
 #define ASSESSMENT_2_PLANE_H
 
+#include <sstream>
 #include <vector>
+#include <iostream>
 #include "../shape/shape.h"
 
 /// Represents a container for 2D objects.
@@ -21,6 +23,15 @@ public:
     void scaleShape(int index, float xMultiplier, float yMultiplier);
     /// Gets detailed information on the nth shape on the plane.
     string getInfo(int index);
+    /// Displays a concise list of shapes on the plane.
+    void printList() {
+        stringstream output;
+        for (int index=1; index<=this->_shapes.size(); index++) {
+            Shape* shape = this->_shapes.at(index-1);
+            output << index << ": " << typeid(*shape).name() << " [" << *shape->_leftTop << "]" << endl;
+        }
+        cout << output.str() << endl;
+    }
 private:
     vector<Shape*> _shapes;
 };
