@@ -9,6 +9,8 @@ using namespace std;
 class Shape {
     friend class Plane;   // This allows Plane to access _leftTop for the Plane::transformShape().
 public:
+    /// Stores the name of the shape's class using the __func__ macro.
+    string name;
     /// Creates a new shape from a position.
     explicit Shape(Point* leftTop);
     /// Calculates the area of the shape and mutates the private member field _area accordingly.
