@@ -46,5 +46,8 @@ void Plane::printList() {
         Shape* shape = this->_shapes.at(index-1);
         output << index << ": " << shape->name << " [" << *shape->_leftTop << "]" << endl;
     }
+    if (output.str().empty()) { // Adds a message if plane is empty.
+        output << "There are no shapes on the plane! 🥲"; 
+    }
     cout << output.str() << endl;
 }
