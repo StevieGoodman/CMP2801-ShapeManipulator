@@ -29,6 +29,8 @@ public:
     void clearList();
 private:
     vector<Shape*> _shapes;
+    /// Used to apply clamping to an integer to a shape's index.
+    void clampIndex(int &index) const;
 };
 
 
