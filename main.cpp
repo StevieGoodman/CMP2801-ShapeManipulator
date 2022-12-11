@@ -101,8 +101,14 @@ int main()
             cout << "Added square!" << endl;
         }
         else if (commandName == "addc") {
-            cout << "Adding circle!" << endl;
-            // TODO: Implement "addC" command.
+            // Add a new square to the 2D plane.
+            if (!command.hasArguments(3)) { continue; }
+            float xPos = stof(arguments.at(0));
+            float yPos = stof(arguments.at(1));
+            float size = abs(stof(arguments.at(2)));
+            auto* newCircle = new Circle(new Point(xPos, yPos), size);
+            plane->addShape(newCircle);
+            cout << "Added circle!" << endl;
         }
         else if (commandName == "scale") {
             // Move the nth shape in the plane to a given position.
