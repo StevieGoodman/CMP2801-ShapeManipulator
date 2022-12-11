@@ -138,8 +138,8 @@ int main()
             cout << "Removed shape!" << endl;
         }
         else if (command.name == "clear") {
-            cout << "Clearing the plane!" << endl;
-            // TODO: Implement "clear" command.
+            plane->clearList();
+            cout << "Removed all shapes!" << endl;
         }
         else if (command.name == "info") {
             // Displays information about the nth shape on the plane.
