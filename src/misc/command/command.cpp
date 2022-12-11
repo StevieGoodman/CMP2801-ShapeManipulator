@@ -1,4 +1,5 @@
 #include <sstream>
+#include <iostream>
 #include "command.h"
 #include "../input/input.h"
 
@@ -15,8 +16,12 @@ Command::Command(const string & input) {
     this->arguments = arguments;
 }
 
-bool Command::hasArguments(const int count) {
-    return this->arguments.size() == count;
+bool Command::hasArguments(const int count) const {
+    const bool validArgumentCount = this->arguments.size() == count;
+    if (!validArgumentCount) { 
+        cout << "You have not provided the correct amount of arguments. Please try again." << endl << endl; 
+    }
+    return validArgumentCount;
 }
 
 bool Command::argumentsValid() {
