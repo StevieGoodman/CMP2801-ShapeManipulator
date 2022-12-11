@@ -65,6 +65,12 @@ int main()
         Input userInput;
         Command command(userInput.getProcessedInput());
         
+        // Validates user input.
+        if (!command.argumentsValid()) {
+            cout << "You have provided an invalid set of arguments. Please try again." << endl;
+            continue;
+        }
+        
         // Parse commands
         if (command.name == "exit") {
             // Exit the program.
