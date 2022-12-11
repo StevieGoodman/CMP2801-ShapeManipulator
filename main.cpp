@@ -80,8 +80,15 @@ int main()
             break;
         }
         else if (commandName == "addr") {
-            cout << "Adding rectangle!" << endl;
-            // TODO: Implement "addR" command.
+            // Add a new rectangle to the 2D plane.
+            if (!command.hasArguments(4)) { continue; }
+            float xPos = stof(arguments.at(0));
+            float yPos = stof(arguments.at(1));
+            float width = abs(stof(arguments.at(2)));
+            float height = abs(stof(arguments.at(3)));
+            auto* newRectangle = new Rectangle(new Point(xPos, yPos), height, width);
+            plane->addShape(newRectangle);
+            cout << "Added rectangle!" << endl;
         }
         else if (commandName == "adds") {
             // Add a new square to the 2D plane.
