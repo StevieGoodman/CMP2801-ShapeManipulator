@@ -15,9 +15,9 @@ private:
     string _processedInput;
     
     /// Removes non-alphanumeric characters from processedInput.
-    void removeCharacters(string & input);
+    void removeCharacters();
     /// Makes processedInput case insensitive.
-    void toLowercase(string & input);
+    void toLowercase();
 };
 
 #endif //ASSESSMENT_2_INPUT_H

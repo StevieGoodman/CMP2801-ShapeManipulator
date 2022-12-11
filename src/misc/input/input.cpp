@@ -5,21 +5,21 @@
 
 Input::Input() {
     cout << "Please type in a command: ";
-    string userInput;
-    getline(cin, userInput);
-    removeCharacters(userInput);
-    toLowercase(userInput);
-    this->_processedInput = userInput;
+    getline(cin, this->_processedInput);
+    this->removeCharacters();
+    this->toLowercase();
 }
 
-void Input::toLowercase(string &input) {
+void Input::toLowercase() {
+    string& input =this->_processedInput;
     transform(input.begin(), 
               input.end(), 
               input.begin(),
               [](char character){ return tolower(character); });
 }
 
-void Input::removeCharacters(string &input) {
+void Input::removeCharacters() {
+    string& input = this->_processedInput;
     stringstream output;
     regex_replace(
             std::ostreambuf_iterator<char>(output), 
