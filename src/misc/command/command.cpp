@@ -35,3 +35,11 @@ bool Command::argumentsValid() {
         [](char ch){ return isdigit(ch) || (ch == '-') || (ch == '.'); });
     });
 }
+
+const string &Command::getName() const {
+    return name;
+}
+
+const vector<string> &Command::getArguments() const {
+    return arguments;
+}
