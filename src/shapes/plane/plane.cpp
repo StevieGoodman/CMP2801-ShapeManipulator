@@ -39,3 +39,12 @@ void Plane::clearList() {
         removeShape(index);
     }
 }
+
+void Plane::printList() {
+    stringstream output;
+    for (int index=1; index<=this->_shapes.size(); index++) {
+        Shape* shape = this->_shapes.at(index-1);
+        output << index << ": " << shape->name << " [" << *shape->_leftTop << "]" << endl;
+    }
+    cout << output.str() << endl;
+}
