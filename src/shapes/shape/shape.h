@@ -7,8 +7,7 @@ using namespace std;
 
 /// Abstract class that all other shape classes derive functionality and fields from.
 class Shape {
-    friend class Movable;
-    
+    friend class Plane;   // This allows Plane to access _leftTop for the Plane::transformShape().
 public:
     /// Creates a new shape from a position.
     explicit Shape(Point* leftTop);
