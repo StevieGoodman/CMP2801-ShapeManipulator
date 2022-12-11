@@ -24,14 +24,7 @@ public:
     /// Gets detailed information on the nth shape on the plane.
     string getInfo(int index);
     /// Displays a concise list of shapes on the plane.
-    void printList() {
-        stringstream output;
-        for (int index=1; index<=this->_shapes.size(); index++) {
-            Shape* shape = this->_shapes.at(index-1);
-            output << index << ": " << shape->name << " [" << *shape->_leftTop << "]" << endl;
-        }
-        cout << output.str() << endl;
-    }
+    void printList();
     /// Empties the plane of any shapes on it.
     void clearList();
 private:
