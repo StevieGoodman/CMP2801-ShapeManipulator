@@ -67,7 +67,7 @@ int main()
         
         // Validates user input.
         if (!command.argumentsValid()) {
-            cout << "You have provided an invalid set of arguments. Please try again." << endl;
+            cout << "You have provided an invalid set of arguments. Please try again." << endl << endl;
             continue;
         }
         
