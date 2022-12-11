@@ -32,6 +32,8 @@ public:
         }
         cout << output.str() << endl;
     }
+    /// Empties the plane of any shapes on it.
+    void clearList();
 private:
     vector<Shape*> _shapes;
 };
