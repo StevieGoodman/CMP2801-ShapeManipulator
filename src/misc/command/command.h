@@ -19,7 +19,9 @@ public:
     
     /// Checks that a command object has a given amount of arguments.
     bool hasArguments(int count);
-
+    
+    /// Returns true if the command is valid (i.e. if it's not empty).
+    bool isValid();
 };
 
 #endif //ASSESSMENT_2_COMMAND_H
