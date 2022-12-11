@@ -27,7 +27,7 @@ void Plane::moveShape(int index, Point* newPos) {
 
 void Plane::scaleShape(int index, float xMultiplier, float yMultiplier) {
     clampIndex(index);
-    dynamic_cast<Movable *>(this->_shapes.at(index-1))->scale(xMultiplier, -1);
+    dynamic_cast<Movable *>(this->_shapes.at(index-1))->scale(xMultiplier, yMultiplier);
 }
 
 string Plane::getInfo(int index) {
