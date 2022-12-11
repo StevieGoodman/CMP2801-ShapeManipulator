@@ -118,6 +118,15 @@ int main()
             plane->moveShape(index, new Point(xPos, yPos));
             cout << "Moved shape!" << endl;
         }
+        else if (command.name == "transform") {
+            // Move the nth shape in the plane to a given position.
+            if (!command.hasArguments(3)) { continue; }
+            int index = stoi(command.arguments.at(0));
+            float xOffset = stof(command.arguments.at(1));
+            float yOffset = stof(command.arguments.at(2));
+            plane->transformShape(index, Point(xOffset, yOffset));
+            cout << "Transformed shape!" << endl;
+        }
         else if (command.name == "list") {
             cout << "Displaying list of shapes!" << endl;
             // TODO: Implement "list" command.
