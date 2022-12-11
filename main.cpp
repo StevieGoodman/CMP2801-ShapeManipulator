@@ -48,7 +48,6 @@
 #include "src/shapes/circle/circle.h"
 #include "src/shapes/rectangle/rectangle.h"
 #include "src/shapes/square/square.h"
-#include "src/shapes/movable/movable.h"
 #include "src/shapes/plane/plane.h"
 
 int main()

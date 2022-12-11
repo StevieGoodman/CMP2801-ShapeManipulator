@@ -2,8 +2,6 @@ using namespace std;
 #include <string>
 #include "square.h"
 
-#include <iostream>
-
 Square::Square(Point* leftTop, float size) 
     : Shape(leftTop), _edge(size) {
     this->name = __func__;
