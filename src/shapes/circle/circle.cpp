@@ -11,6 +11,16 @@ Circle::Circle(Point *leftTop, float radius)
     calculatePoints();
 }
 
+Circle::~Circle() {
+    std::for_each(
+            this->_points.begin(),
+            this->_points.end(),
+            [](Point* point){
+                delete point;
+            }
+    );
+}
+
 void Circle::move(Point *newLeftTop) {
     this->_leftTop = newLeftTop;
     this->calculatePoints();
