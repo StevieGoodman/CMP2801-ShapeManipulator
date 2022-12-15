@@ -2,7 +2,8 @@
 #include "circle.h"
 
 Circle::Circle(Point *leftTop, float radius) 
-    : Shape(leftTop), _radius(radius) {
+    : _radius(radius) {
+    this->_leftTop = leftTop;
     this->name = __func__;
     this->_isCircular = true;
     calculateArea();

@@ -1,7 +1,8 @@
 #include "rectangle.h"
 
 Rectangle::Rectangle(Point *leftTop, float height, float width)
-        : Shape(leftTop), _height(height), _width(width) {
+        : _height(height), _width(width) {
+    this->_leftTop = leftTop;
     this->name = __func__;
     this->_isCircular = false;
     calculateArea();

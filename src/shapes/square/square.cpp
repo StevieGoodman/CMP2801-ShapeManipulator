@@ -3,7 +3,8 @@ using namespace std;
 #include "square.h"
 
 Square::Square(Point* leftTop, float size) 
-    : Shape(leftTop), _edge(size) {
+    : _edge(size) {
+    this->_leftTop = leftTop;
     this->name = __func__;
     this->_isCircular = false;
     calculateArea();
