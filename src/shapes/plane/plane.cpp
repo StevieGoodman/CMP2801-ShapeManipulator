@@ -5,9 +5,9 @@ using namespace std;
 
 Plane::~Plane() {
     std::for_each( // I could have use a for loop but wanted to demonstrate my understanding of iterators and lambdas.
-            this->_shapes.begin(),
-            this->_shapes.end(),
-            [](Shape* shape) { delete shape; }
+        this->_shapes.begin(),
+        this->_shapes.end(),
+        [](Shape* shape) { delete shape; }
     );
 }
 

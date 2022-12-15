@@ -9,7 +9,7 @@
       │ ├ command   → Used to process a command into a command name and arguments.
       │ └ input     → Used to prompt for and process user input.
       └ shapes    → Contains classes used in directly in shape manipulation.
-        ├ plane     → Container for shape objects on a 2D plane.
+        ├ plane     → Container for shape objects on a 2D plane. Replaces Shape* vector.
         ├ shape     → Abstract class from which non-abstract shape classes derive from.
         ├ movable   → Abstract class that provides polymorphism for shape movement.
         ├ point     → Represents a point on a 2D plane.
@@ -76,11 +76,13 @@ int main()
         // Run commands.
         string commandName = command.getName();
         vector<string> arguments = command.getArguments();
+        
         if (commandName == "exit") {
             // Exit the program.
             cout << "Exiting shape manipulator!" << endl;
             break;
         }
+        
         else if (commandName == "addr") {
             // Add a new rectangle to the 2D plane.
             if (!command.hasArguments(4)) { continue; }
@@ -92,6 +94,7 @@ int main()
             plane->addShape(newRectangle);
             cout << "Added rectangle!" << endl;
         }
+        
         else if (commandName == "adds") {
             // Add a new square to the 2D plane.
             if (!command.hasArguments(3)) { continue; }
@@ -102,6 +105,7 @@ int main()
             plane->addShape(newSquare);
             cout << "Added square!" << endl;
         }
+        
         else if (commandName == "addc") {
             // Add a new circle to the 2D plane.
             if (!command.hasArguments(3)) { continue; }
@@ -112,6 +116,7 @@ int main()
             plane->addShape(newCircle);
             cout << "Added circle!" << endl;
         }
+        
         else if (commandName == "scale") {
             // Move the nth shape in the plane to a given position.
             int index;
@@ -131,6 +136,7 @@ int main()
             else { continue; }
             cout << "Scaled shape!" << endl;
         }
+        
         else if (commandName == "move") {
             // Move the nth shape in the plane to a given position.
             if (!command.hasArguments(3)) { continue; }
@@ -140,6 +146,7 @@ int main()
             plane->moveShape(index, new Point(xPos, yPos));
             cout << "Moved shape!" << endl;
         }
+        
         else if (commandName == "transform") {
             // Move the nth shape in the plane to a given position.
             if (!command.hasArguments(3)) { continue; }
@@ -149,9 +156,11 @@ int main()
             plane->transformShape(index, Point(xOffset, yOffset));
             cout << "Transformed shape!" << endl;
         }
+        
         else if (commandName == "list") {
             plane->printList();
         }
+        
         else if (commandName == "remove") {
             // Remove nth shape from the plane.
             if (!command.hasArguments(1)) { continue; }
@@ -159,33 +168,43 @@ int main()
             plane->removeShape(index);
             cout << "Removed shape!" << endl;
         }
+        
         else if (commandName == "clear") {
+            // Clear all shapes from the plane.
             plane->clearList();
             cout << "Removed all shapes!" << endl;
         }
+        
         else if (commandName == "info") {
-            // Displays information about the nth shape on the plane.
+            // Display information about the nth shape on the plane.
             if (!command.hasArguments(1)) { continue; }
             int index = stoi(arguments.at(0));
             cout << plane->getInfo(index) << endl;
         }
+        
         else if (commandName == "help") {
+            // Display list of commands.
             const string HELP_OUTPUT =
                     "COMMANDS:"
-                    "\n\tAddS [x] [y] [s]     │ Adds a square to position {x, y} with size {s, s}"
-                    "\n\tAddR [x] [y] [w] [h] │ Adds a rectangle to position {x, y} with size {w, h}"
-                    "\n\tAddC [x] [y] [r]     │ Adds a circle to position {x, y} with radius r"
-                    "\n\tRemove [n]           │ Removes the nth shape from the plane"
-                    "\n\tClear                │ Clears all shapes from the plane"
-                    "\n\tList [n]             │ Lists each shape in the plane, alongside their index & position"
-                    "\n\tInfo [n]             │ Displays information about the nth shape in the plane"
-                    "\n\tHelp                 │ Displays the full list of commands"
-                    "\n\tExit                 │ Quits the program";
+                    "\n\tAddS [x] [y] [s]      │ Adds a square to position {x, y} with size {s, s}"
+                    "\n\tAddR [x] [y] [w] [h]  │ Adds a rectangle to position {x, y} with size {w, h}"
+                    "\n\tAddC [x] [y] [r]      │ Adds a circle to position {x, y} with radius r"
+                    "\n\tMove [n] [x] [y]      │ Moves the nth shape to position {x, y}"
+                    "\n\tTransform [n] [x] [y] │ Offsets the nth shape's position by {x, y}"
+                    "\n\tRemove [n]            │ Removes the nth shape from the plane"
+                    "\n\tClear                 │ Clears all shapes from the plane"
+                    "\n\tList                  │ Lists each shape in the plane, alongside their index & position"
+                    "\n\tInfo [n]              │ Displays information about the nth shape in the plane"
+                    "\n\tHelp                  │ Displays the full list of commands"
+                    "\n\tExit                  │ Quits the program"
+                    "\nAll input is case insensitive and is fully validated.";
             cout << HELP_OUTPUT << endl;
         }
+        
         else {
             cout << "Command not recognised. Please enter a valid command." << endl;
         }
+        
         cout << endl;
     }
     delete plane;
