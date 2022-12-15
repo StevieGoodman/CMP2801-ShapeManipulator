@@ -15,7 +15,9 @@ public:
     void calculatePerimeter() override;
     void calculatePoints() override;
     string toString() override;
-    
+
+    virtual ~Square();
+
 private:
     /// The length of each side of the square.
     float _edge;

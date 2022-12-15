@@ -12,6 +12,16 @@ Square::Square(Point* leftTop, float size)
     calculatePoints();
 }
 
+Square::~Square() {
+    std::for_each(
+            this->_points.begin(),
+            this->_points.end(),
+            [](Point* point){
+                delete point;
+            }
+    );
+}
+
 void Square::scale(float xMultiplier, float yMultiplier) {
     this->_edge *= xMultiplier;
     calculatePoints();
