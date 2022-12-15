@@ -30,6 +30,10 @@ void Plane::scaleShape(int index, float xMultiplier, float yMultiplier) {
     dynamic_cast<Movable *>(this->_shapes.at(index-1))->scale(xMultiplier, yMultiplier);
 }
 
+void Plane::scaleShape(int index, float xMultiplier) {
+    this->scaleShape(index, xMultiplier, xMultiplier);
+}
+
 string Plane::getInfo(int index) {
     clampIndex(index);
     return this->_shapes.at(index-1)->toString();

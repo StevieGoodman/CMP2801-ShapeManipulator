@@ -21,6 +21,7 @@ public:
     void transformShape(int index, Point offset);
     /// Scales the nth shape on the plane by a given multiplier.
     void scaleShape(int index, float xMultiplier, float yMultiplier);
+    void scaleShape(int index, float xMultiplier);
     /// Gets detailed information on the nth shape on the plane.
     string getInfo(int index);
     /// Displays a concise list of shapes on the plane.
