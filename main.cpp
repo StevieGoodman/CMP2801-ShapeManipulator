@@ -59,7 +59,9 @@ int main()
     cout << INTRO_TEXT << endl;
     
     auto* plane = new Plane;
-    while (true) // Repeats the prompt until player exits the program using the "exit" command.
+    
+    // Repeat the prompt until player exits the program using the "exit" command.
+    while (true) 
     {
         // Get user input
         Input userInput;
@@ -71,7 +73,7 @@ int main()
             continue;
         }
         
-        // Parse commands
+        // Run commands.
         string commandName = command.getName();
         vector<string> arguments = command.getArguments();
         if (commandName == "exit") {
@@ -101,7 +103,7 @@ int main()
             cout << "Added square!" << endl;
         }
         else if (commandName == "addc") {
-            // Add a new square to the 2D plane.
+            // Add a new circle to the 2D plane.
             if (!command.hasArguments(3)) { continue; }
             float xPos = stof(arguments.at(0));
             float yPos = stof(arguments.at(1));
@@ -118,15 +120,15 @@ int main()
             if (command.hasArguments(2)) {
                 index = stoi(arguments.at(0));
                 xMultiplier = abs(stof(arguments.at(1)));
-                yMultiplier = xMultiplier;
+                plane->scaleShape(index, xMultiplier);
             }
             else if (command.hasArguments(3)) {
                 index = stoi(arguments.at(0));
                 xMultiplier = abs(stof(arguments.at(1)));
                 yMultiplier = abs(stof(arguments.at(2)));
+                plane->scaleShape(index, xMultiplier, yMultiplier);
             }
             else { continue; }
-            plane->scaleShape(index, xMultiplier, yMultiplier);
             cout << "Scaled shape!" << endl;
         }
         else if (commandName == "move") {
@@ -184,9 +186,6 @@ int main()
         else {
             cout << "Command not recognised. Please enter a valid command." << endl;
         }
-
-        // TODO: Perform memory management.
-        
         cout << endl;
     }
     delete plane;
