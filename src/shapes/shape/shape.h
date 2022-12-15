@@ -1,7 +1,6 @@
 #ifndef ASSESSMENT_2_SHAPE_H
 #define ASSESSMENT_2_SHAPE_H
 
-using namespace std;
 #include <vector>
 #include "../point/point.h"
 
@@ -11,8 +10,7 @@ class Shape {
 public:
     /// Stores the name of the shape's class using the __func__ macro.
     string name;
-    /// Creates a new shape from a position.
-    explicit Shape(Point* leftTop);
+
     /// Calculates the area of the shape and mutates the private member field _area accordingly.
     virtual void calculateArea() = 0;
     /// Calculates the perimeter of the shape and mutates the private member field _perimeter accordingly.
