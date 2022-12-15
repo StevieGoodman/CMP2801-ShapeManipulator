@@ -32,6 +32,16 @@ void Circle::calculatePerimeter() {
 }
 
 void Circle::calculatePoints() {
+    // Deallocate memory from old points.
+    std::for_each(
+            this->_points.begin(),
+            this->_points.end(),
+            [this](Point* point){
+                if (point == this->_leftTop) { return; }
+                delete point;
+            }
+    );
+    // Insert new points.
     Point* leftTop     = this->_leftTop;
     Point* rightBottom = *this->_leftTop + Point(this->_radius, this->_radius);
     this->_points = vector<Point*>{
