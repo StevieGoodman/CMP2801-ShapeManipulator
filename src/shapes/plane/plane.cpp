@@ -31,6 +31,7 @@ void Plane::scaleShape(int index, float xMultiplier, float yMultiplier) {
 }
 
 void Plane::scaleShape(int index, float xMultiplier) {
+    clampIndex(index);
     this->scaleShape(index, xMultiplier, xMultiplier);
 }
 
