@@ -10,6 +10,17 @@ Rectangle::Rectangle(Point *leftTop, float height, float width)
     calculatePoints();
 }
 
+Rectangle::~Rectangle() {
+    // Deallocate memory from old points.
+    std::for_each(
+        this->_points.begin(),
+        this->_points.end(),
+        [](Point* point){
+            delete point;
+        }
+    );
+}
+
 void Rectangle::calculateArea() {
     this->_area = _width * _height;
 }
@@ -19,6 +30,16 @@ void Rectangle::calculatePerimeter() {
 }
 
 void Rectangle::calculatePoints() {
+    // Deallocate memory from old points.
+    std::for_each(
+        this->_points.begin(),
+        this->_points.end(),
+        [this](Point* point){
+            if (point == this->_leftTop) { return; }
+            delete point;
+        }
+    );
+    // Insert new points.
     Point* leftTop     = this->_leftTop;
     Point* rightTop    = *this->_leftTop + Point(this->_width, 0);
     Point* leftBottom  = *this->_leftTop + Point(0, this->_height);

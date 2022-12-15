@@ -14,6 +14,9 @@ public:
     void calculatePerimeter() override;
     void calculatePoints() override;
     string toString() override;
+
+    virtual ~Circle();
+
 private:
     /// The radius of the circle.
     float _radius;

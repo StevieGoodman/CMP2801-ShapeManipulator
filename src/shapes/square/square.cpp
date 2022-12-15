@@ -12,6 +12,16 @@ Square::Square(Point* leftTop, float size)
     calculatePoints();
 }
 
+Square::~Square() {
+    std::for_each(
+            this->_points.begin(),
+            this->_points.end(),
+            [](Point* point){
+                delete point;
+            }
+    );
+}
+
 void Square::scale(float xMultiplier, float yMultiplier) {
     this->_edge *= xMultiplier;
     calculatePoints();
@@ -28,6 +38,16 @@ void Square::calculatePerimeter() {
 }
 
 void Square::calculatePoints() {
+    // Deallocate memory from old points.
+    std::for_each(
+        this->_points.begin(), 
+        this->_points.end(),
+        [this](Point* point){
+            if (point == this->_leftTop) { return; }
+            delete point;
+        }
+    );
+    // Insert new points.
     Point* leftTop     = this->_leftTop;
     Point* rightTop    = *this->_leftTop + Point(this->_edge, 0);
     Point* leftBottom  = *this->_leftTop + Point(0, this->_edge);
