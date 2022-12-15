@@ -14,6 +14,8 @@ public:
     void move(Point *newLeftTop) override;
     void scale(float xMultiplier, float yMultiplier) override;
 
+    virtual ~Rectangle();
+
 private:
     /// Vertical size of the rectangle.
     float _height;
